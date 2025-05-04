@@ -1,0 +1,111 @@
+:root {
+  --font-family: "Noto Sans TC", sans-serif;
+  --text-color: #333;
+  --title-bg-color: #e7efec; /* 標題部分的淺綠色背景 */
+  --content-bg-color: #ffffff; /* 內容部分的白色背景 */
+  --divider-color: #2c4c39; /* 深綠色分隔線 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.cardList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cardItem {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cardItems {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+/* 分隔線  */
+.cardItems:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 8px;
+  background-color: var(--divider-color);
+  z-index: 1;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: 48px;
+  color: var(--divider-color);
+  background-color: var(--title-bg-color);
+  padding: 40px 20px;
+  margin: 0;
+}
+
+.card > div {
+  background-color: var(--content-bg-color);
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.cardSubTitle {
+  font-size: 24px;
+  color: var(--divider-color);
+  margin-bottom: 20px;
+}
+
+.cardText {
+  line-height: 1.6;
+}
+
+/* 響應式設計 - 三種排列方式 */
+/* 三張橫向排列(預設) */
+
+/* 上面兩張橫向，下面一張 */
+@media (max-width: 900px) {
+  .cardItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .cardItem li:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .cardItem li:nth-child(2)::after {
+    display: none;
+  }
+}
+
+/* 垂直排列 */
+@media (max-width: 600px) {
+  .cardItem {
+    display: block;
+  }
+
+  .cardItem li::after {
+    display: none;
+  }
+}
