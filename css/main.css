@@ -1,149 +1,22 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/* 全局重置樣式 */
+* {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  box-sizing: border-box;
 }
 
 :root {
+  /* 共用顏色變數 */
   --primary-color: #4a6fa5;
   --secondary-color: #166088;
   --accent-color: #4fc3a1;
+  --accent-hover: #3da987;
   --text-color: #333;
   --light-bg: #f8f9fa;
   --dark-bg: #343a40;
   --border-radius: 10px;
   --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -177,16 +50,67 @@ header h1 {
 header p {
   color: #777;
   font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
-.weeks-container {
+/* 切換按鈕樣式 */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.toggle-btn {
+  padding: 8px 20px;
+  border: none;
+  background-color: #e9ecef;
+  color: #666;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.toggle-btn:hover {
+  background-color: #dee2e6;
+}
+
+.toggle-btn.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* 區段容器樣式 */
+.section-container {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.section-container.active {
+  display: block;
+  opacity: 1;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+}
+
+/* 卡片容器通用樣式 */
+.cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
 }
 
-.week-card {
+/* 卡片通用樣式 */
+.card {
   background-color: white;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
@@ -194,10 +118,10 @@ header p {
   transition: var(--transition);
   position: relative;
   cursor: pointer;
-  height: 200px;
+  height: 180px;
 }
 
-.week-card:hover {
+.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
@@ -210,13 +134,13 @@ header p {
   justify-content: space-between;
 }
 
-.week-card h2 {
+.card h3 {
   color: var(--primary-color);
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
-.week-card p {
+.card p {
   color: #666;
   margin-bottom: 15px;
 }
@@ -225,13 +149,13 @@ header p {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--accent-color);
   opacity: 0.7;
   transition: var(--transition);
 }
 
-.week-card:hover .card-icon {
+.card:hover .card-icon {
   transform: scale(1.2);
   opacity: 1;
 }
@@ -243,7 +167,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* 動畫相關樣式 */
+/* 動畫 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -261,25 +185,38 @@ footer {
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-  .weeks-container {
+  .cards-container {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 
   header h1 {
     font-size: 2rem;
   }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .weeks-container {
+  .cards-container {
     grid-template-columns: 1fr;
   }
 
-  .week-card {
-    height: 180px;
+  .card {
+    height: 160px;
   }
 
   header h1 {
     font-size: 1.8rem;
+  }
+
+  .toggle-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toggle-btn {
+    width: 100%;
   }
 }

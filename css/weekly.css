@@ -1,0 +1,90 @@
+/* 週次作業特定樣式 */
+.weeks-container {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.week-card {
+  background: linear-gradient(145deg, #ffffff, #f5f9ff);
+  border-left: 4px solid var(--primary-color);
+}
+
+.week-card .card-content {
+  padding: 22px;
+}
+
+.week-card h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.week-card p {
+  font-size: 0.95rem;
+}
+
+.week-card .card-icon {
+  color: var(--primary-color);
+}
+
+/* 週次卡片懸停特效 */
+.week-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(74, 111, 165, 0.05) 0%,
+    rgba(79, 195, 161, 0.08) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.week-card .card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* 完成標記 */
+.week-card.completed::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+/* 視差滾動效果會在JS中處理 */
+
+@media (max-width: 768px) {
+  .weeks-container {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .week-card {
+    height: 170px;
+  }
+
+  .week-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weeks-container {
+    grid-template-columns: 1fr;
+  }
+
+  .week-card {
+    height: 150px;
+  }
+
+  .week-card h3 {
+    font-size: 1.2rem;
+  }
+}

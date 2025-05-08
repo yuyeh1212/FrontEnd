@@ -158,6 +158,10 @@ header {
   margin-bottom: 20px;
 }
 
+header h1 {
+  display: inline-block;
+}
+
 header img {
   height: 40px;
 }
@@ -198,7 +202,7 @@ header img {
   transform: scale(1.5);
 }
 
-.coueseItem h3 {
+.coueseItem h2 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;

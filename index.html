@@ -3,100 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>週次作業展示</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>學習進度展示</title>
+    <!-- 共用字體和圖標 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <!-- 載入各自的樣式表 -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/weekly.css" id="weekly-css" />
+    <link rel="stylesheet" href="./css/daily.css" id="daily-css" disabled />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>週次作業展示</h1>
-        <p>點擊每週作業查看詳情</p>
+        <h1>學習進度展示</h1>
+        <p>記錄我的學習旅程</p>
+
+        <!-- 切換按鈕 -->
+        <div class="toggle-container">
+          <button id="weekly-btn" class="toggle-btn active">週次作業</button>
+          <button id="daily-btn" class="toggle-btn">每日挑戰</button>
+        </div>
       </header>
 
       <main>
-        <div class="weeks-container">
-          <!-- 週次卡片區域 -->
-          <div class="week-card" data-folder="htmlHw">
-            <div class="card-content">
-              <h2>HTML - CSS教學</h2>
-              <p>小節作業一</p>
-              <div class="card-icon">
-                <i class="fas fa-code"></i>
+        <!-- 週次作業區塊 -->
+        <div id="weekly-section" class="section-container active">
+          <h2 class="section-title">主線週次作業</h2>
+          <div class="cards-container weeks-container">
+            <div class="card week-card" data-folder="htmlHw">
+              <div class="card-content">
+                <h3>HTML - CSS教學</h3>
+                <p>主線作業一</p>
+                <div class="card-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="cssHw">
+              <div class="card-content">
+                <h3>使用 CSS 變更 HTML 標籤特性</h3>
+                <p>主線作業二</p>
+                <div class="card-icon">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="flexHw">
+              <div class="card-content">
+                <h3>Flex 網頁排版技巧</h3>
+                <p>主線作業三</p>
+                <div class="card-icon">
+                  <i class="fas fa-js-square"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="#">
+              <div class="card-content">
+                <h3>第四週</h3>
+                <p>待更新</p>
+                <div class="card-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="#">
+              <div class="card-content">
+                <h3>第五週</h3>
+                <p>待更新</p>
+                <div class="card-icon">
+                  <i class="fas fa-server"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="#">
+              <div class="card-content">
+                <h3>第六週</h3>
+                <p>待更新</p>
+                <div class="card-icon">
+                  <i class="fas fa-th-large"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card week-card" data-folder="#">
+              <div class="card-content">
+                <h3>第七週</h3>
+                <p>待更新</p>
+                <div class="card-icon">
+                  <i class="fas fa-project-diagram"></i>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="week-card" data-folder="cssHw">
-            <div class="card-content">
-              <h2>使用 CSS 變更 HTML 標籤特性</h2>
-              <p>小節作業二</p>
-              <div class="card-icon">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-            </div>
+        <!-- 每日挑戰區塊 -->
+        <div id="daily-section" class="section-container">
+          <h2 class="section-title">21天挑戰馬拉松</h2>
+          <div class="cards-container days-container">
+            <!-- 動態生成21天挑戰卡片 -->
           </div>
-
-          <div class="week-card" data-folder="flexHw">
-            <div class="card-content">
-              <h2>Flex 網頁排版技巧</h2>
-              <p>小節作業三</p>
-              <div class="card-icon">
-                <i class="fas fa-js-square"></i>
-              </div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
             </div>
-          </div>
-
-          <div class="week-card" data-folder="#">
-            <div class="card-content">
-              <h2>第四週</h2>
-              <p>待更新</p>
-              <div class="card-icon">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="week-card" data-folder="#">
-            <div class="card-content">
-              <h2>第五週</h2>
-              <p>待更新</p>
-              <div class="card-icon">
-                <i class="fas fa-server"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="week-card" data-folder="#">
-            <div class="card-content">
-              <h2>第六週</h2>
-              <p>待更新</p>
-              <div class="card-icon">
-                <i class="fas fa-th-large"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="week-card" data-folder="#">
-            <div class="card-content">
-              <h2>第七週</h2>
-              <p>待更新</p>
-              <div class="card-icon">
-                <i class="fas fa-project-diagram"></i>
-              </div>
-            </div>
+            <p class="progress-text">
+              完成進度: <span id="completion-rate">0</span>/21
+            </p>
           </div>
         </div>
       </main>
 
       <footer>
-        <p>&copy; 2025 週次作業展示</p>
+        <p>&copy; 2025 學習進度展示</p>
       </footer>
     </div>
 
-    <script src="app.js"></script>
+    <!-- 載入各自的腳本 -->
+    <script src="./js/main.js"></script>
+    <script src="./js/weekly.js" id="weekly-js"></script>
+    <script src="./js/daily.js" id="daily-js"></script>
   </body>
 </html>
