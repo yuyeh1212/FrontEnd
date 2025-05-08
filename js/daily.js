@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const dailyChallenges = [
     {
       day: 1,
-      title: "基礎HTML結構",
-      category: "HTML",
+      title: "HTML 標籤元素",
+      category: "CSS",
       icon: "fa-html5",
       completed: true,
     },
@@ -158,6 +158,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const today = new Date();
   const currentDay = 5; // 假設現在是第5天，實際使用可計算真實天數
 
+  // 更新進度條函數
+  function updateProgressBar() {
+    const completedChallenges = dailyChallenges.filter(
+      (c) => c.completed
+    ).length;
+    const totalChallenges = dailyChallenges.length;
+    const progressFill = document.querySelector(".progress-fill");
+    const completionRate = document.getElementById("completion-rate");
+
+    // 更新進度條寬度
+    const progressPercentage = (completedChallenges / totalChallenges) * 100;
+    progressFill.style.width = progressPercentage + "%";
+
+    // 更新完成數量
+    completionRate.textContent = completedChallenges;
+  }
+
   // 創建每日挑戰卡片
   function createDailyCards() {
     // 清空容器
@@ -201,12 +218,25 @@ document.addEventListener("DOMContentLoaded", function () {
         // 已完成或當前挑戰，開啟對應頁面
         const day = this.getAttribute("data-day");
 
-        // 如果有實際頁面的話就跳轉，否則顯示開發中
-        if (challenge.day <= currentDay) {
-          // 實際使用時應該跳轉到對應的挑戰頁面
-          // window.open(`/daily/day${day}.html`, "_blank");
-          alert(`第${day}天挑戰頁面開發中！`);
-        }
+        // 檢查對應頁面是否存在
+        const challengePage = `/daily/day${day}/index.html`;
+
+        // 使用fetch檢查頁面是否存在
+        fetch(challengePage, { method: "HEAD" })
+          .then((response) => {
+            if (response.ok) {
+              // 頁面存在，跳轉到對應頁面
+              window.open(challengePage, "_blank");
+            } else {
+              // 頁面不存在，顯示提示
+              alert(`第${day}天挑戰頁面開發中！`);
+            }
+          })
+          .catch((error) => {
+            // 出錯時顯示提示
+            alert(`第${day}天挑戰頁面開發中！`);
+            console.error("頁面檢查錯誤:", error);
+          });
       });
 
       // 將卡片添加到容器

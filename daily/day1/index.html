@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 與 CSS 練習</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- CSS 示範區塊 -->
+    <section class="demo-section">
+      <h2 class="demo-title">CSS 元素與顏色示範</h2>
+
+      <div class="element-demo">
+        <p class="green yellow orange">
+          我是P段落，文字顏色是什麼呢? 區塊元素還是行內元素呢? ==&gt;
+          綠色，區塊元素
+        </p>
+      </div>
+
+      <div class="element-demo">
+        <span class="red yellow green">
+          我是span，文字顏色是什麼呢? 區塊元素還是行內元素呢? ==&gt;
+          綠色，行內元素
+        </span>
+      </div>
+
+      <div class="element-demo">
+        <div class="blue orange red">
+          我是div，文字顏色是什麼呢? 區塊元素還是行內元素呢? ==&gt;
+          紅色，區塊元素
+        </div>
+      </div>
+
+      <div class="element-demo">
+        <a class="yellow blue green">
+          我是a連結，文字顏色是什麼呢? 區塊元素還是行內元素呢? ==&gt;
+          綠色，行內元素
+        </a>
+      </div>
+
+      <div class="element-demo">
+        <img src="..." alt="img" />
+        我是img，區塊元素還是行內元素呢? ==&gt; 行內元素
+      </div>
+
+      <p>
+        我們知道在 CSS 類別套用的優先順序 ——
+        在同等優先權下，後宣告的類別會覆蓋前面的，但類別在 HTML
+        中的順序不會影響這個行為。
+      </p>
+
+      <ul>
+        <li>p - 為綠色，區塊為 block</li>
+        <li>span - 為綠色，區塊為 inline</li>
+        <li>div - 為紅色，區塊為 block</li>
+        <li>a - 為綠色，區塊為 inline</li>
+        <li>img - 區塊為 inline</li>
+      </ul>
+    </section>
+
+    <!-- JavaScript 題目區塊 -->
+    <section class="demo-section">
+      <h2 class="demo-title">JavaScript 題目練習</h2>
+      <div class="container">
+        <div class="box">
+          <h3 class="title">第一題 + 第二題</h3>
+          <img class="img" src="./img/01.png" alt="第一題和第二題示範圖" />
+          <p>第一題：<span id="itemOne"></span></p>
+          <p>第二題：<span id="itemTwo"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">第三題 + 第四題</h3>
+          <img class="img" src="./img/02.png" alt="第三題和第四題示範圖" />
+          <p>第三題：<span id="itemThree"></span></p>
+          <p>第四題：<span id="itemFour"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">第五題</h3>
+          <img class="img" src="./img/03.png" alt="第五題示範圖" />
+          <p>第五題：<span id="itemFive"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="./all.js"></script>
+  </body>
+</html>
