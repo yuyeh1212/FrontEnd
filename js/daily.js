@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const day = this.getAttribute("data-day");
 
         // 檢查對應頁面是否存在
-        const challengePage = `/daily/day${day}/index.html`;
+        const challengePage = `daily/day${day}/index.html`;
 
         // 使用fetch檢查頁面是否存在
         fetch(challengePage, { method: "HEAD" })
