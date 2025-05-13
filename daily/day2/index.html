@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 與 CSS 練習</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- CSS 示範區塊 -->
+    <section class="demoSection">
+      <h2 class="demoTitle">CSS 元素與顏色示範</h2>
+
+      <div class="elementDemo">
+        <img
+          src="https://ithelp.ithome.com.tw/storage/image/logo.svg"
+          alt=" iT邦幫忙logo"
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nostrum
+          officiis aspernatur.
+        </p>
+      </div>
+    </section>
+
+    <!-- JavaScript 題目區塊 -->
+    <section class="demoSection">
+      <h2 class="demoTitle">JavaScript 題目練習</h2>
+      <div class="container">
+        <div class="box">
+          <h3 class="title">(1)平方計算</h3>
+          <p>Q：square(3)、square(9)、square(20)</p>
+          <p>A：<span id="aOne"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(2)數學邏輯題</h3>
+          <p>
+            Q：calculate(5,7,3)、calculate(9,8,7)、calculate(5,2,0)、calculate(9,9,33)
+          </p>
+          <p>A：<span id="aTwo"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(3)四捨五入題</h3>
+          <p>Q：rounding(3.9988)、rounding(3984.222)、rounding(77.777)</p>
+          <p>A:<span id="aThree"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(4)字串轉數字</h3>
+          <p>Q：parseNumber("2.33")、parseNumber("Hello!!")、parseNumber("30000")</p>
+          <p>A:<span id="aFour"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(5)被二整除</h3>
+          <p>Q：divisible(2)、divisible(3)、divisible(77)、divisible(88)</p>
+          <p>A:<span id="aFive"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="./all.js"></script>
+  </body>
+</html>

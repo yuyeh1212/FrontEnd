@@ -1,156 +1,8 @@
+// 引入每日挑戰數據
+import { dailyChallenges } from "./dailyChallengesData.js";
+
 // 每日挑戰特定功能
 document.addEventListener("DOMContentLoaded", function () {
-  // 每日挑戰數據 (實際使用時可從伺服器獲取)
-  const dailyChallenges = [
-    {
-      day: 1,
-      title: "HTML 標籤元素",
-      category: "CSS",
-      icon: "fa-html5",
-      completed: true,
-    },
-    {
-      day: 2,
-      title: "CSS選擇器",
-      category: "CSS",
-      icon: "fa-css3-alt",
-      completed: true,
-    },
-    {
-      day: 3,
-      title: "Flexbox布局",
-      category: "CSS",
-      icon: "fa-css3",
-      completed: true,
-    },
-    {
-      day: 4,
-      title: "表單元素",
-      category: "HTML",
-      icon: "fa-wpforms",
-      completed: true,
-    },
-    {
-      day: 5,
-      title: "響應式設計",
-      category: "CSS",
-      icon: "fa-mobile-alt",
-      completed: false,
-    },
-    {
-      day: 6,
-      title: "JavaScript基礎",
-      category: "JS",
-      icon: "fa-js",
-      completed: false,
-    },
-    {
-      day: 7,
-      title: "DOM操作",
-      category: "JS",
-      icon: "fa-sitemap",
-      completed: false,
-    },
-    {
-      day: 8,
-      title: "事件處理",
-      category: "JS",
-      icon: "fa-bolt",
-      completed: false,
-    },
-    {
-      day: 9,
-      title: "LocalStorage",
-      category: "JS",
-      icon: "fa-database",
-      completed: false,
-    },
-    {
-      day: 10,
-      title: "API請求",
-      category: "JS",
-      icon: "fa-cloud-download-alt",
-      completed: false,
-    },
-    {
-      day: 11,
-      title: "CSS動畫",
-      category: "CSS",
-      icon: "fa-magic",
-      completed: false,
-    },
-    {
-      day: 12,
-      title: "CSS Grid",
-      category: "CSS",
-      icon: "fa-th",
-      completed: false,
-    },
-    {
-      day: 13,
-      title: "SVG繪圖",
-      category: "HTML",
-      icon: "fa-bezier-curve",
-      completed: false,
-    },
-    {
-      day: 14,
-      title: "偽元素使用",
-      category: "CSS",
-      icon: "fa-cut",
-      completed: false,
-    },
-    {
-      day: 15,
-      title: "模組化JS",
-      category: "JS",
-      icon: "fa-cubes",
-      completed: false,
-    },
-    {
-      day: 16,
-      title: "Promise異步",
-      category: "JS",
-      icon: "fa-tasks",
-      completed: false,
-    },
-    {
-      day: 17,
-      title: "多媒體元素",
-      category: "HTML",
-      icon: "fa-film",
-      completed: false,
-    },
-    {
-      day: 18,
-      title: "CSS變數",
-      category: "CSS",
-      icon: "fa-palette",
-      completed: false,
-    },
-    {
-      day: 19,
-      title: "面向對象JS",
-      category: "JS",
-      icon: "fa-object-group",
-      completed: false,
-    },
-    {
-      day: 20,
-      title: "表單驗證",
-      category: "JS",
-      icon: "fa-check-circle",
-      completed: false,
-    },
-    {
-      day: 21,
-      title: "綜合專案",
-      category: "ALL",
-      icon: "fa-project-diagram",
-      completed: false,
-    },
-  ];
-
   // 獲取挑戰卡片容器
   const daysContainer = document.querySelector(".days-container");
 
@@ -219,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const day = this.getAttribute("data-day");
 
         // 檢查對應頁面是否存在
-        const challengePage = `daily/day${day}/index.html`;
+        const challengePage = `/daily/day${day}/index.html`;
 
         // 使用fetch檢查頁面是否存在
         fetch(challengePage, { method: "HEAD" })
