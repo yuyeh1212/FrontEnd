@@ -70,22 +70,29 @@ document.addEventListener("DOMContentLoaded", function () {
         // 已完成或當前挑戰，開啟對應頁面
         const day = this.getAttribute("data-day");
 
-        // 檢查對應頁面是否存在
-        const challengePage = `/daily/day${day}/index.html`;
+        // 使用相對路徑，而非絕對路徑
+        // 取得當前頁面的基礎路徑
+        const basePath = window.location.pathname.substring(
+          0,
+          window.location.pathname.lastIndexOf("/") + 1
+        );
+        const challengePage = `${basePath}daily/day${day}/index.html`;
 
         // 使用fetch檢查頁面是否存在
         fetch(challengePage, { method: "HEAD" })
           .then((response) => {
             if (response.ok) {
-              // 頁面存在，跳轉到對應頁面
+              // 頁面存在，在新標籤頁打開對應頁面
               window.open(challengePage, "_blank");
             } else {
               // 頁面不存在，顯示提示
+              console.log("嘗試訪問的頁面:", challengePage);
               alert(`第${day}天挑戰頁面開發中！`);
             }
           })
           .catch((error) => {
             // 出錯時顯示提示
+            console.log("嘗試訪問的頁面:", challengePage);
             alert(`第${day}天挑戰頁面開發中！`);
             console.error("頁面檢查錯誤:", error);
           });
