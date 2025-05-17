@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blogList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  /* PC顯示 - 3欄 */
+  .blogItem {
+    width: calc((100% - 48px) / 3);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  /* 平板顯示 - 2欄 */
+  .blogItem {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 575px) {
+  /* 手機顯示 - 1欄 */
+  .blogItem {
+    width: 100%;
+  }
+}
+
+.blogItem {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  margin-bottom: 24px;
+}
+
+.blogItem:hover {
+  transform: translateY(-5px);
+}
+
+.blogImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.blogContent {
+  padding: 15px;
+}
+
+.blogDate {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.blogTag {
+  display: inline-block;
+  color: #0027d5;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.blogTags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.blogTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.blogExcerpt {
+  font-size: 14px;
+  color: #4b4b4b;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 限制顯示2行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readMoreBtn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  color: #4b4b4b;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.readMoreBtn:hover {
+  border-color: #0027d5;
+  color: #0027d5;
+}
+
+.hotBadge {
+  display: inline-block;
+  background-color: #0027d5;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 700;
+}
