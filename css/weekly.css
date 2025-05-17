@@ -1,32 +1,32 @@
 /* 週次作業特定樣式 */
-.weeks-container {
+.weeksContainer {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.week-card {
+.weekCard {
   background: linear-gradient(145deg, #ffffff, #f5f9ff);
   border-left: 4px solid var(--primary-color);
 }
 
-.week-card .card-content {
+.weekCard .cardContent {
   padding: 22px;
 }
 
-.week-card h3 {
+.weekCard h3 {
   color: var(--primary-color);
   font-weight: 600;
 }
 
-.week-card p {
+.weekCard p {
   font-size: 0.95rem;
 }
 
-.week-card .card-icon {
+.weekCard .cardIcon {
   color: var(--primary-color);
 }
 
 /* 週次卡片懸停特效 */
-.week-card:hover::before {
+.weekCard:hover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -42,13 +42,13 @@
   pointer-events: none;
 }
 
-.week-card .card-content {
+.weekCard .cardContent {
   position: relative;
   z-index: 2;
 }
 
 /* 完成標記 */
-.week-card.completed::after {
+.weekCard.completed::after {
   content: "\f00c";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -62,29 +62,29 @@
 /* 視差滾動效果會在JS中處理 */
 
 @media (max-width: 768px) {
-  .weeks-container {
+  .weeksContainer {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 
-  .week-card {
+  .weekCard {
     height: 170px;
   }
 
-  .week-card h3 {
+  .weekCard h3 {
     font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .weeks-container {
+  .weeksContainer {
     grid-template-columns: 1fr;
   }
 
-  .week-card {
+  .weekCard {
     height: 150px;
   }
 
-  .week-card h3 {
+  .weekCard h3 {
     font-size: 1.2rem;
   }
 }

@@ -1,11 +1,11 @@
 // 週次作業特定功能
 document.addEventListener("DOMContentLoaded", function () {
   // 週次卡片的功能
-  const weekCards = document.querySelectorAll(".week-card");
+  const weekCards = document.querySelectorAll(".weekCard");
 
   // 初始化動畫
   setTimeout(() => {
-    window.animateCards(".week-card");
+    window.animateCards(".weekCard");
   }, 100);
 
   // 點擊卡片事件處理
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 懸停效果：移動卡片圖標
     card.addEventListener("mouseenter", function () {
-      const icon = this.querySelector(".card-icon i");
+      const icon = this.querySelector(".cardIcon i");
       icon.style.transition = "transform 0.5s ease";
 
       // 隨機選擇動畫效果
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     card.addEventListener("mouseleave", function () {
-      const icon = this.querySelector(".card-icon i");
+      const icon = this.querySelector(".cardIcon i");
       icon.style.transform = "none";
     });
   });
@@ -57,9 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 在滾動時添加視差效果
   window.addEventListener("scroll", function () {
     // 只在週次區塊可見時執行
-    if (
-      document.getElementById("weekly-section").classList.contains("active")
-    ) {
+    if (document.getElementById("weeklySection").classList.contains("active")) {
       const scrollPosition = window.scrollY;
 
       weekCards.forEach((card, index) => {
@@ -73,11 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 當視窗大小改變時重新計算布局
   window.addEventListener("resize", function () {
     // 只在週次區塊可見時執行
-    if (
-      document.getElementById("weekly-section").classList.contains("active")
-    ) {
+    if (document.getElementById("weeklySection").classList.contains("active")) {
       // 重新排列卡片布局
-      const container = document.querySelector(".weeks-container");
+      const container = document.querySelector(".weeksContainer");
       const containerWidth = container.offsetWidth;
 
       // 依據容器寬度調整卡片排列

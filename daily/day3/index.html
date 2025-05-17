@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 與 CSS 練習</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- CSS 示範區塊 -->
+    <section class="demoSection">
+      <h2 class="demoTitle">box-sizing 屬性示範</h2>
+      
+      <div class="box-container">
+        <div class="box1">
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quia
+            praesentium beatae velit?
+          </p>
+        </div>
+
+        <div class="box2">
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quia
+            praesentium beatae velit?
+          </p>
+        </div>
+      </div>
+
+      <div class="explanation-container">
+        <div class="ans1w">
+          <h3>box1預設為content-box</h3>
+          <p>內容寬度：<strong>300px</strong></p>
+          <p>padding 左右：<strong>16px + 16px = 32px</strong></p>
+          <p>border 左右：<strong>3px + 3px = 6px</strong></p>
+          <p>總寬度 = <strong>300 + 32 + 6 = 338px</strong></p>
+          <p class="note">Content-box：padding 和 border 是額外加上去的</p>
+        </div>
+
+        <div class="ans2w">
+          <h3>box2設定為border-box</h3>
+          <p>總寬度：<strong>300px</strong></p>
+          <p>padding 左右：<strong>16px + 16px = 32px</strong></p>
+          <p>border 左右：<strong>3px + 3px = 6px</strong></p>
+          <p>內容寬度 = <strong>300 - 32 - 6 = 262px</strong></p>
+          <p class="note">Border-box：寬度包含 padding 和 border</p>
+        </div>
+
+        <div class="ans1h">
+          <h3>Content-box 高度計算</h3>
+          <p>line-height：<strong>24px</strong></p>
+          <p>padding 上下：<strong>16px + 16px = 32px</strong></p>
+          <p>border 上下：<strong>3px + 3px = 6px</strong></p>
+          <p>總高度 = <strong>72 + 32 + 6 = 110px</strong></p>
+          <p class="note">因未設定 height，會根據內容自動撐開</p>
+        </div>
+
+        <div class="ans2h">
+          <h3>Border-box 高度計算</h3>
+          <p>line-height：<strong>24px</strong></p>
+          <p>padding 上下：<strong>16px + 16px = 32px</strong></p>
+          <p>border 上下：<strong>3px + 3px = 6px</strong></p>
+          <p>總高度 = <strong>72 + 32 + 6 = 110px</strong></p>
+          <p class="note">因未設定 height，會根據內容自動撐開</p>
+        </div>
+      </div>
+
+      <div class="visual-guide">
+        <div class="guide-header">視覺比較</div>
+        <div class="guide-container">
+          <div class="guide-item">
+            <div class="guide-box guide-content">Content-box</div>
+            <div class="guide-label">寬度 = 內容寬度</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-box guide-border">Border-box</div>
+            <div class="guide-label">寬度 = 內容寬度 + Padding + Border</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript 題目區塊 -->
+    <section class="demoSection">
+      <h2 class="demoTitle">JavaScript 字串處理練習</h2>
+      <div class="container">
+        <div class="box">
+          <h3 class="title">(1)字串長度計算</h3>
+          <p class="question">Q：checkStringLength("Hello")、checkStringLength("my name is Tom！")</p>
+          <p class="answer">A：<span id="aOne"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(2)英文強制小寫</h3>
+          <p class="question">
+            Q：lowerCase("FOKFF@gmail.com")、lowerCase("gonSakpm@gmail.com")
+          </p>
+          <p class="answer">A：<span id="aTwo"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(3)去除段落左右空白</h3>
+          <p class="question">Q：trimString("    hi, mom!  ")、trimString(" aa@gmail.com  ")</p>
+          <p class="answer">A：<span id="aThree"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(4)字串依照條件轉陣列</h3>
+          <p class="question">
+            Q：splitString("black,red,white")、splitString("coffee,tea")
+          </p>
+          <p class="answer">A：<span id="aFour"></span></p>
+        </div>
+        <div class="box">
+          <h3 class="title">(5)切割市區字串</h3>
+          <p class="question">Q：getArea("高雄市前鎮區一心二路33號")、getArea("高雄市新興區新興路66號")</p>
+          <p class="answer">A：<span id="aFive"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="./all.js"></script>
+  </body>
+</html>

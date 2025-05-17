@@ -54,14 +54,14 @@ header p {
 }
 
 /* 切換按鈕樣式 */
-.toggle-container {
+.toggleContainer {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin: 20px 0;
 }
 
-.toggle-btn {
+.toggleBtn {
   padding: 8px 20px;
   border: none;
   background-color: #e9ecef;
@@ -73,28 +73,28 @@ header p {
   transition: var(--transition);
 }
 
-.toggle-btn:hover {
+.toggleBtn:hover {
   background-color: #dee2e6;
 }
 
-.toggle-btn.active {
+.toggleBtn.active {
   background-color: var(--accent-color);
   color: white;
 }
 
 /* 區段容器樣式 */
-.section-container {
+.sectionContainer {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
-.section-container.active {
+.sectionContainer.active {
   display: block;
   opacity: 1;
 }
 
-.section-title {
+.sectionTitle {
   text-align: center;
   margin-bottom: 20px;
   color: var(--secondary-color);
@@ -102,7 +102,7 @@ header p {
 }
 
 /* 卡片容器通用樣式 */
-.cards-container {
+.cardsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
@@ -126,7 +126,7 @@ header p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-content {
+.cardContent {
   padding: 20px;
   height: 100%;
   display: flex;
@@ -145,7 +145,7 @@ header p {
   margin-bottom: 15px;
 }
 
-.card-icon {
+.cardIcon {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -155,7 +155,7 @@ header p {
   transition: var(--transition);
 }
 
-.card:hover .card-icon {
+.card:hover .cardIcon {
   transform: scale(1.2);
   opacity: 1;
 }
@@ -179,13 +179,13 @@ footer {
   }
 }
 
-.fade-in {
+.fadeIn {
   animation: fadeIn 0.5s ease forwards;
 }
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-  .cards-container {
+  .cardsContainer {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 
@@ -193,13 +193,13 @@ footer {
     font-size: 2rem;
   }
 
-  .section-title {
+  .sectionTitle {
     font-size: 1.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  .cards-container {
+  .cardsContainer {
     grid-template-columns: 1fr;
   }
 
@@ -211,12 +211,12 @@ footer {
     font-size: 1.8rem;
   }
 
-  .toggle-container {
+  .toggleContainer {
     flex-direction: column;
     gap: 10px;
   }
 
-  .toggle-btn {
+  .toggleBtn {
     width: 100%;
   }
 }

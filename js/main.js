@@ -1,12 +1,12 @@
 // 共用函數和事件
 document.addEventListener("DOMContentLoaded", function () {
   // 切換週次作業和每日挑戰的功能
-  const weeklyBtn = document.getElementById("weekly-btn");
-  const dailyBtn = document.getElementById("daily-btn");
-  const weeklySection = document.getElementById("weekly-section");
-  const dailySection = document.getElementById("daily-section");
-  const weeklyCss = document.getElementById("weekly-css");
-  const dailyCss = document.getElementById("daily-css");
+  const weeklyBtn = document.getElementById("weeklyBtn");
+  const dailyBtn = document.getElementById("dailyBtn");
+  const weeklySection = document.getElementById("weeklySection");
+  const dailySection = document.getElementById("dailySection");
+  const weeklyCss = document.getElementById("weeklyCss");
+  const dailyCss = document.getElementById("dailyCss");
 
   // 切換到週次作業
   weeklyBtn.addEventListener("click", function () {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dailyCss.disabled = true;
 
     // 觸發重新動畫
-    animateCards(".week-card");
+    animateCards(".weekCard");
   });
 
   // 切換到每日挑戰
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     weeklyCss.disabled = true;
 
     // 觸發重新動畫
-    animateCards(".day-card");
+    animateCards(".dayCard");
 
     // 更新進度條
     updateProgressBar();
@@ -52,26 +52,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(selector);
     cards.forEach((card, index) => {
       // 先重置動畫
-      card.classList.remove("fade-in");
+      card.classList.remove("fadeIn");
 
       // 強制重繪
       void card.offsetWidth;
 
       // 設置延遲添加動畫類
       setTimeout(() => {
-        card.classList.add("fade-in");
+        card.classList.add("fadeIn");
       }, 50 * index);
     });
   }
 
   // 更新進度條函數
   function updateProgressBar() {
-    const completedCards = document.querySelectorAll(
-      ".day-card.completed"
-    ).length;
-    const totalCards = document.querySelectorAll(".day-card").length;
-    const progressFill = document.querySelector(".progress-fill");
-    const completionRate = document.getElementById("completion-rate");
+    const completedCards =
+      document.querySelectorAll(".dayCard.completed").length;
+    const totalCards = document.querySelectorAll(".dayCard").length;
+    const progressFill = document.querySelector(".progressFill");
+    const completionRate = document.getElementById("completionRate");
 
     if (progressFill && completionRate) {
       const percentage = (completedCards / totalCards) * 100;

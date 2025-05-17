@@ -1,27 +1,27 @@
 /* 每日挑戰特定樣式 */
-.days-container {
+.daysContainer {
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
-.day-card {
+.dayCard {
   height: 160px;
   background: linear-gradient(145deg, #ffffff, #f9f5ff);
   border-top: 4px solid var(--accent-color);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.day-card .card-content {
+.dayCard .cardContent {
   padding: 18px;
 }
 
-.day-card h3 {
+.dayCard h3 {
   color: var(--secondary-color);
   font-weight: 600;
   display: flex;
   align-items: center;
 }
 
-.day-number {
+.dayNumber {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -34,39 +34,39 @@
   font-size: 0.9rem;
 }
 
-.day-card p {
+.dayCard p {
   font-size: 0.9rem;
 }
 
-.day-card .card-icon {
+.dayCard .cardIcon {
   color: var(--accent-color);
 }
 
 /* 標記已完成的挑戰 */
-.day-card.completed {
+.dayCard.completed {
   border-color: #28a745;
   background: linear-gradient(145deg, #f7fff9, #ffffff);
 }
 
-.day-card.completed .day-number {
+.dayCard.completed .dayNumber {
   background-color: #28a745;
 }
 
-.day-card.completed .card-icon {
+.dayCard.completed .cardIcon {
   color: #28a745;
 }
 
 /* 標記當前日期的挑戰 */
-.day-card.today {
+.dayCard.today {
   box-shadow: 0 6px 15px rgba(79, 195, 161, 0.2);
   border-color: #ff9800;
 }
 
-.day-card.today .day-number {
+.dayCard.today .dayNumber {
   background-color: #ff9800;
 }
 
-.day-card.today::before {
+.dayCard.today::before {
   content: "今日";
   position: absolute;
   top: 10px;
@@ -79,13 +79,13 @@
 }
 
 /* 尚未解鎖的挑戰 */
-.day-card.locked {
+.dayCard.locked {
   opacity: 0.7;
   filter: grayscale(30%);
   cursor: not-allowed;
 }
 
-.day-card.locked::before {
+.dayCard.locked::before {
   content: "\f023";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -98,18 +98,18 @@
   z-index: 10;
 }
 
-.day-card.locked .card-content {
+.dayCard.locked .cardContent {
   filter: blur(1px);
 }
 
 /* 進度條樣式 */
-.progress-container {
+.progressContainer {
   margin: 30px auto;
   max-width: 500px;
   text-align: center;
 }
 
-.progress-bar {
+.progressBar {
   height: 20px;
   background-color: #e9ecef;
   border-radius: 10px;
@@ -117,14 +117,14 @@
   margin-bottom: 10px;
 }
 
-.progress-fill {
+.progressFill {
   height: 100%;
   background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
   width: 0%;
   transition: width 1s ease;
 }
 
-.progress-text {
+.progressText {
   color: #666;
   font-weight: 500;
 }
@@ -142,39 +142,39 @@
   }
 }
 
-.day-card.today {
+.dayCard.today {
   animation: pulse 2s infinite;
 }
 
 @media (max-width: 768px) {
-  .days-container {
+  .daysContainer {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
-  .day-card {
+  .dayCard {
     height: 150px;
   }
 }
 
 @media (max-width: 480px) {
-  .days-container {
+  .daysContainer {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
-  .day-card {
+  .dayCard {
     height: 130px;
   }
 
-  .day-card .card-content {
+  .dayCard .cardContent {
     padding: 12px;
   }
 
-  .day-card h3 {
+  .dayCard h3 {
     font-size: 1.1rem;
   }
 
-  .day-number {
+  .dayNumber {
     width: 25px;
     height: 25px;
     font-size: 0.8rem;

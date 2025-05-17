@@ -4,7 +4,7 @@ import { dailyChallenges } from "./dailyChallengesData.js";
 // 每日挑戰特定功能
 document.addEventListener("DOMContentLoaded", function () {
   // 獲取挑戰卡片容器
-  const daysContainer = document.querySelector(".days-container");
+  const daysContainer = document.querySelector(".daysContainer");
 
   // 判斷當前日期，模擬進度 (實際應用中可能需要從服務器獲取真實進度)
   const today = new Date();
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       (c) => c.completed
     ).length;
     const totalChallenges = dailyChallenges.length;
-    const progressFill = document.querySelector(".progress-fill");
-    const completionRate = document.getElementById("completion-rate");
+    const progressFill = document.querySelector(".progressFill");
+    const completionRate = document.getElementById("completionRate");
 
     // 更新進度條寬度
     const progressPercentage = (completedChallenges / totalChallenges) * 100;
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dailyChallenges.forEach((challenge) => {
       // 創建卡片元素
       const card = document.createElement("div");
-      card.className = "card day-card";
+      card.className = "card dayCard";
       card.setAttribute("data-day", challenge.day);
 
       // 添加狀態類別
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 設置卡片內容
       card.innerHTML = `
-          <div class="card-content">
-            <h3><span class="day-number">${challenge.day}</span>${challenge.title}</h3>
+          <div class="cardContent">
+            <h3><span class="dayNumber">${challenge.day}</span>${challenge.title}</h3>
             <p>分類: ${challenge.category}</p>
-            <div class="card-icon">
+            <div class="cardIcon">
               <i class="fab ${challenge.icon}"></i>
             </div>
           </div>
@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 添加卡片懸停效果
   function addCardHoverEffects() {
-    const dayCards = document.querySelectorAll(".day-card:not(.locked)");
+    const dayCards = document.querySelectorAll(".dayCard:not(.locked)");
 
     dayCards.forEach((card) => {
       // 懸停時圖標效果
       card.addEventListener("mouseenter", function () {
-        const icon = this.querySelector(".card-icon i");
+        const icon = this.querySelector(".cardIcon i");
         if (icon) {
           icon.style.transition = "transform 0.4s ease";
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       card.addEventListener("mouseleave", function () {
-        const icon = this.querySelector(".card-icon i");
+        const icon = this.querySelector(".cardIcon i");
         if (icon) {
           icon.style.transform = "none";
         }
@@ -151,9 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
 
     // 插入到標題後面
-    const sectionTitle = document.querySelector(
-      "#daily-section .section-title"
-    );
+    const sectionTitle = document.querySelector("#dailySection .sectionTitle");
     sectionTitle.after(filterContainer);
 
     // 添加過濾功能
@@ -168,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const filter = this.getAttribute("data-filter");
 
         // 過濾卡片
-        const dayCards = document.querySelectorAll(".day-card");
+        const dayCards = document.querySelectorAll(".dayCard");
         dayCards.forEach((card) => {
           const category = card.querySelector("p").textContent.split(": ")[1];
 
@@ -194,18 +192,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 初始動畫
     setTimeout(() => {
-      window.animateCards(".day-card");
+      window.animateCards(".dayCard");
     }, 100);
   }
 
   // 檢查是否在挑戰區塊顯示時初始化
   // 如果直接顯示每日挑戰，就立即初始化
-  if (document.getElementById("daily-btn").classList.contains("active")) {
+  if (document.getElementById("dailyBtn").classList.contains("active")) {
     initDailyChallenge();
   }
 
   // 添加點擊事件監聽，當切換到每日挑戰時初始化
-  document.getElementById("daily-btn").addEventListener("click", function () {
+  document.getElementById("dailyBtn").addEventListener("click", function () {
     // 檢查是否已經初始化過
     if (daysContainer.children.length === 0) {
       initDailyChallenge();
@@ -215,17 +213,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // 窗口大小變化時重新排列
   window.addEventListener("resize", function () {
     // 只在每日挑戰區塊可見時執行
-    if (document.getElementById("daily-section").classList.contains("active")) {
+    if (document.getElementById("dailySection").classList.contains("active")) {
       // 響應式調整...
       const containerWidth = daysContainer.offsetWidth;
 
       // 小螢幕調整
       if (containerWidth < 480) {
-        document.querySelectorAll(".day-card").forEach((card) => {
+        document.querySelectorAll(".dayCard").forEach((card) => {
           card.style.height = "130px";
         });
       } else {
-        document.querySelectorAll(".day-card").forEach((card) => {
+        document.querySelectorAll(".dayCard").forEach((card) => {
           card.style.height = "160px";
         });
       }

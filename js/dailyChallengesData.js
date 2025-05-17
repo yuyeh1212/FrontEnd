@@ -16,7 +16,7 @@ const dailyChallenges = [
   },
   {
     day: 3,
-    title: "Flexbox布局",
+    title: "box-sizing",
     category: "CSS",
     icon: "fa-css3",
     completed: true,
