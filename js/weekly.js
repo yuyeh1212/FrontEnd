@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 標記已完成的週次作業 (示例數據)
-  const completedWeeks = ["htmlHw", "cssHw", "flexHw"]; // 已完成的資料夾名稱
+  const completedWeeks = ["htmlHw", "cssHw", "flexHw", "blogCard"]; // 已完成的資料夾名稱
 
   weekCards.forEach((card) => {
     const folder = card.getAttribute("data-folder");

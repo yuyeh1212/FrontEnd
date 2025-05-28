@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage--;
         displayPage();
         updatePagination();
-        // 捲動到頁面頂部
-        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
     pagination.appendChild(prevBtn);
@@ -59,8 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage = i;
         displayPage();
         updatePagination();
-        // 捲動到頁面頂部
-        window.scrollTo({ top: 0, behavior: "smooth" });
       });
       pagination.appendChild(pageBtn);
     }
@@ -77,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage++;
         displayPage();
         updatePagination();
-        // 捲動到頁面頂部
-        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
     pagination.appendChild(nextBtn);
@@ -92,22 +86,18 @@ document.addEventListener("DOMContentLoaded", function () {
     createPagination();
   }
 
-  // 顯示當前頁面的項目 - 修復排版問題
   function displayPage() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    // 隱藏所有項目，但保持原本的 display 屬性
     blogItems.forEach((item) => {
       item.style.display = "none";
     });
 
-    // 顯示當前頁面的項目，使用空字串恢復 CSS 原本的 display 設定
     filteredItems.slice(startIndex, endIndex).forEach((item) => {
       item.style.display = "";
     });
 
-    // 如果沒有結果，顯示提示訊息
     if (filteredItems.length === 0) {
       showNoResults();
     } else {
@@ -115,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 顯示無結果提示
   function showNoResults() {
     let noResultsDiv = document.querySelector(".noResults");
     if (!noResultsDiv) {
@@ -130,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
     noResultsDiv.style.display = "block";
   }
 
-  // 隱藏無結果提示
   function hideNoResults() {
     const noResultsDiv = document.querySelector(".noResults");
     if (noResultsDiv) {
